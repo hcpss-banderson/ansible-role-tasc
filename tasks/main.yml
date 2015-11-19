@@ -1,0 +1,19 @@
+---
+- name: Clone the Tasc repo
+  git:
+    repo: "https://github.com/hcpss-banderson/tasc.git"
+    dest: /srv/tasc
+
+- name: Install Tasc dependencies
+  command: composer install
+  args:
+    chdir: /srv/tasc
+    creates: vendor
+    
+- name: Add Tasc to the path
+  file: src=/srv/tasc/tasc.php dest=/usr/local/bin/tasc state=link
+
+- name: Create parameters
+  template: src=parameters.yml.j2 dest=/srv/tasc/parameters.yml
+  when: tasc_parameters.0 is defined
+    

@@ -1,0 +1,5 @@
+---
+parameters:
+{% for parameter in tasc_parameters %}
+  {{ parameter.key }}: "{{ parameter.value }}"
+{% endfor %}
