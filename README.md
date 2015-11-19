@@ -1,6 +1,6 @@
 # Tasc Ansible Role
 
-An ansible role for installing and configurint Tasc
+An ansible role for installing and configuring Tasc
 
 ## License
 
